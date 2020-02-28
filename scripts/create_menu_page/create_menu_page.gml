@@ -6,7 +6,7 @@ var _arg;
 
 var _i = 0;
 repeat (argument_count) {
-	_arg[i] = argument[i];	
+	_arg[_i] = argument[_i];	
 	_i += 1;	
 }
 
@@ -15,7 +15,7 @@ var _ds_grid_id = ds_grid_create(5, argument_count);
 
 _i = 0;
 repeat (argument_count) {
-	var _arr = _arg[i];
+	var _arr = _arg[_i];
 	var _len = array_length_1d(_arr);
 	
 	var _j = 0;
