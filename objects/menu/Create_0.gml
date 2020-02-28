@@ -84,3 +84,25 @@ ds_menu_controls = create_menu_page(
 );
 
 #endregion
+
+#region Pages
+
+page = 0;
+
+menu_pages = [
+	ds_menu_main, 
+	ds_menu_settings, 
+	ds_menu_audio, 
+	ds_menu_graphics, 
+	ds_menu_difficulty, 
+	ds_menu_controls
+];
+
+var _i = 0;
+var _len = array_length_1d(menu_pages);
+repeat (_len) {
+	menu_option[_i] = 0;
+	_i += 1;
+}
+
+#endregion
