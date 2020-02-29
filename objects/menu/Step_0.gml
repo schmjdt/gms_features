@@ -43,6 +43,19 @@ if (inputting) {
 			
 			break;	
 		case menu_element_type.input:
+			var _lk = keyboard_lastkey;
+			
+			// TODO: Can add other invalid keys
+			if (_lk != vk_enter) {
+				if (_lk != _grid[# 3, _selected]) {
+					// TODO: Add audio sound when picked new key
+					_grid[# 3, _selected] = _lk;
+					variable_global_set(_grid[# 2, _selected], _lk);
+				}
+			} else {
+				// TODO: Add audio sound when picked invalid key
+			}
+		
 			break;	
 	}
 } else {
