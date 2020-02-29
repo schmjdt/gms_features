@@ -7,6 +7,8 @@ input_down_p  = keyboard_check_pressed(global.control_down);
 input_enter_p = keyboard_check_pressed(global.control_enter);
 input_right_p = keyboard_check_pressed(global.control_right);
 input_left_p  = keyboard_check_pressed(global.control_left);
+input_right_h = keyboard_check(global.control_right);
+input_left_h  = keyboard_check(global.control_left);
 
 var _grid = menu_pages[page];
 var _gh = ds_grid_height(_grid);
@@ -27,7 +29,17 @@ if (inputting) {
 			}
 			
 			break;	
-		case menu_element_type.slider:			
+		case menu_element_type.slider:	
+			var _input_h = input_right_h - input_left_h;			
+			var _range = _grid[# 4, _selected]
+			
+			if (_input_h != 0) {
+				_grid[# 3, _selected] += _input_h * 0.01;
+				_grid[# 3, _selected] = clamp(_grid[# 3, _selected], _range[0], _range[1]);
+				
+				// TODO: Add /intermittent/ audio sound when changing options
+			}
+			
 			break;	
 		case menu_element_type.toggle:
 			break;	
