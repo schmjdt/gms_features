@@ -93,7 +93,6 @@ repeat (_gh) {
 			break;
 		case menu_element_type.toggle:
 			var _cv = _grid[# 3, _yy];
-			var _ca = _grid[# 4, _yy];
 			var _c1, _c2;
 			
 			if (_cv == 0) {
@@ -107,6 +106,21 @@ repeat (_gh) {
 			draw_text_color(_rtx,      _rty, "ON",  _c1, _c1, _c1, _c1, 1);
 			draw_text_color(_rtx + 32, _rty, "OFF", _c2, _c2, _c2, _c2, 1);
 			
+			break;
+		case menu_element_type.input:
+			var _cv = _grid[# 3, _yy];
+			var _sv;
+		
+			switch (_cv) {
+				case vk_up:		_sv = "UP KEY";		break;
+				case vk_left:	_sv = "LEFT KEY";	break;
+				case vk_right:	_sv = "RIGHT KEY";	break;
+				case vk_down:	_sv = "DOWN KEY";	break;
+				default:		_sv = chr(_cv);		break;
+			}
+			
+			draw_text_color(_rtx, _rty, _sv, _c, _c, _c, _c, 1);
+		
 			break;
 	}
 	
