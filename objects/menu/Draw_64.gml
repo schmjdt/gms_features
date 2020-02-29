@@ -65,7 +65,9 @@ _yy = 0;
 
 repeat (_gh) {
 	_rty = _ys + (_yy * _yb);
+	
 	_c = c_white;
+	if (inputting and _yy == menu_option[page]) _c = c_yellow;
 		
 	switch (_grid[# 1, _yy]) {
 		case menu_element_type.shift:
@@ -76,7 +78,7 @@ repeat (_gh) {
 			
 			if (_cv == 0) _ls = "";
 			if (_cv == array_length_1d(_ca) - 1) _rs = "";
-			
+						
 			draw_text_color(_rtx, _rty, _ls + _ca[_cv] + _rs, _c, _c, _c, _c, 1);
 				
 			break;
@@ -85,7 +87,7 @@ repeat (_gh) {
 			var _cv = _grid[# 3, _yy];
 			var _ca = _grid[# 4, _yy];
 			var _cp = ((_cv - _ca[0]) / (_ca[1] - _ca[0]));
-			
+						
 			draw_line_width(_rtx, _rty, _rtx + _len, _rty, 2);
 			draw_circle_color(_rtx + (_cp * _len), _rty, 4, _c, _c, false);
 			draw_text_color(_rtx + (_len * 1.2), _rty, string(floor(_cp * 100)) + "%", _c, _c, _c, _c, 1);
@@ -94,7 +96,7 @@ repeat (_gh) {
 		case menu_element_type.toggle:
 			var _cv = _grid[# 3, _yy];
 			var _c1, _c2;
-			
+						
 			if (_cv == 0) {
 				_c1 = _c;
 				_c2 = c_dkgray;
@@ -102,7 +104,7 @@ repeat (_gh) {
 				_c1 = c_dkgray;
 				_c2 = _c;
 			}
-			
+						
 			draw_text_color(_rtx,      _rty, "ON",  _c1, _c1, _c1, _c1, 1);
 			draw_text_color(_rtx + 32, _rty, "OFF", _c2, _c2, _c2, _c2, 1);
 			
@@ -118,7 +120,7 @@ repeat (_gh) {
 				case vk_down:	_sv = "DOWN KEY";	break;
 				default:		_sv = chr(_cv);		break;
 			}
-			
+						
 			draw_text_color(_rtx, _rty, _sv, _c, _c, _c, _c, 1);
 		
 			break;

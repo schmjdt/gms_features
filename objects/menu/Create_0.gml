@@ -6,6 +6,8 @@ global.view_height = camera_get_view_height(view_camera[0]);
 
 display_set_gui_size(global.view_width, global.view_height);
 
+inputting = false;
+
 #region Keybinds
 
 global.control_revert = ord("X");

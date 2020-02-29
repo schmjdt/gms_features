@@ -8,22 +8,34 @@ input_enter_p = keyboard_check_pressed(global.control_enter);
 
 var _grid = menu_pages[page];
 var _gh = ds_grid_height(_grid);
-var _oc = input_down_p - input_up_p;
 
-if (_oc != 0) {
-	menu_option[page] += _oc;	
+if (inputting) {
 	
-	if (menu_option[page] > _gh - 1) menu_option[page] = 0;
-	if (menu_option[page] < 0)		 menu_option[page] = _gh - 1;
+} else {
+	var _oc = input_down_p - input_up_p;
+	if (_oc != 0) {
+		menu_option[page] += _oc;	
 	
-	// TODO: Add audio sound when changing options
+		if (menu_option[page] > _gh - 1) menu_option[page] = 0;
+		if (menu_option[page] < 0)		 menu_option[page] = _gh - 1;
+	
+		// TODO: Add audio sound when changing options
+	}
 }
 
 if (input_enter_p) {
 	switch (_grid[# 1, menu_option[page]]) {
+		case menu_element_type.script_runner:
+			break;
 		case menu_element_type.page_transfer:
 			page = _grid[# 2, menu_option[page]];
 			break;
+		case menu_element_type.slider:
+		case menu_element_type.shift:
+		case menu_element_type.toggle:
+		case menu_element_type.input:
+			inputting = !inputting;
+			break;	
 	}
 	
 	// TODO: Add audio sound when make selection
