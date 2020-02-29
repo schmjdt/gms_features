@@ -15,4 +15,16 @@ if (_oc != 0) {
 	
 	if (menu_option[page] > _gh - 1) menu_option[page] = 0;
 	if (menu_option[page] < 0)		 menu_option[page] = _gh - 1;
+	
+	// TODO: Add audio sound when changing options
+}
+
+if (input_enter_p) {
+	switch (_grid[# 1, menu_option[page]]) {
+		case menu_element_type.page_transfer:
+			page = _grid[# 2, menu_option[page]];
+			break;
+	}
+	
+	// TODO: Add audio sound when make selection
 }
