@@ -15,7 +15,7 @@ var _xb = 16;
 var _ys = (_vh / 2) - ((((_gh - 1) / 2) * _yb));
 var _xs = (_vw / 2);
 
-var _yy, _ltx, _lty;
+var _yy, _ltx, _lty, _xo;
 
 #region Draw Pause Menu "Back"
 
@@ -35,7 +35,16 @@ _yy = 0;
 
 repeat (_gh) {
 	_lty = _ys + (_yy * _yb);
-	draw_text(_ltx, _lty, _grid[# 0, _yy]);
+	_c = c_white;
+	_xo = 0;
+	
+	if (_yy == menu_option[page]) {
+		_c = c_orange;
+		_xo = -(_xb / 2);
+	}
+	
+	draw_text_color(_ltx + _xo, _lty, _grid[# 0, _yy], _c, _c, _c, _c, 1);
+	
 	_yy += 1;
 }
 
