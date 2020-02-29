@@ -1,10 +1,16 @@
 /// @description 
 
+#region Setup Vars
+
 global.pause = true;
 global.view_width  = camera_get_view_width(view_camera[0]);
 global.view_height = camera_get_view_height(view_camera[0]);
 
 display_set_gui_size(global.view_width, global.view_height);
+
+inputting = false;
+
+#endregion
 
 #region Keybinds
 
@@ -32,8 +38,8 @@ enum menu_page {
 enum menu_element_type {
 	script_runner,
 	page_transfer,
-	slider,
 	shift,
+	slider,
 	toggle,
 	input
 }
@@ -58,14 +64,14 @@ ds_menu_settings = create_menu_page(
 
 ds_menu_audio = create_menu_page(
 	["MASTER",	menu_element_type.slider,		  change_volume,	.5,	[0,1]],
-	["SOUNDS",	menu_element_type.slider,		  change_volume,	.3,	[0,1]],
-	["MUSIC",	menu_element_type.slider,		  change_volume,	1,	[0,1]],
+	["SOUNDS",	menu_element_type.slider,		  change_volume,	1,	[0,1]],
+	["MUSIC",	menu_element_type.slider,		  change_volume,	.2,	[0,1]],
 	["BACK",	menu_element_type.page_transfer,  menu_page.main]
 );
 
 ds_menu_difficulty = create_menu_page(
-	["ENEMIES",	menu_element_type.shift,		  change_difficulty,	0, ["HARMLESS", "NORMAL", "TERRIBLE"]],
-	["ALLIES",	menu_element_type.shift,		  change_difficulty,	0, ["DIM-WITTED", "NORMAL", "HELPFUL"]],
+	["ENEMIES",	menu_element_type.shift,		  change_difficulty,	1, ["HARMLESS", "NORMAL", "TERRIBLE"]],
+	["ALLIES",	menu_element_type.shift,		  change_difficulty,	1, ["DIM-WITTED", "NORMAL", "HELPFUL"]],
 	["BACK",	menu_element_type.page_transfer,  menu_page.main]
 );
 
