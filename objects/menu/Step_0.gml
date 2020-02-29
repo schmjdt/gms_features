@@ -2,6 +2,8 @@
 
 if (!global.pause) exit;
 
+#region inputs
+
 input_up_p	  = keyboard_check_pressed(global.control_up);
 input_down_p  = keyboard_check_pressed(global.control_down);
 input_enter_p = keyboard_check_pressed(global.control_enter);
@@ -10,11 +12,17 @@ input_left_p  = keyboard_check_pressed(global.control_left);
 input_right_h = keyboard_check(global.control_right);
 input_left_h  = keyboard_check(global.control_left);
 
+#endregion
+
+#region Setup Vars
+
 var _grid = menu_pages[page];
 var _gh = ds_grid_height(_grid);
 
+#endregion
+
 if (inputting) {
-	#region updating selected option
+	#region updating selected option on right side
 	
 	var _selected = menu_option[page]
 	
@@ -69,7 +77,7 @@ if (inputting) {
 	
 	#endregion
 } else {
-	#region changing which option
+	#region changing which option on left side
 	
 	var _oc = input_down_p - input_up_p;
 	if (_oc != 0) {
@@ -86,6 +94,8 @@ if (inputting) {
 }
 
 if (input_enter_p) {
+	#region selecting option on left side
+	
 	var _selected = menu_option[page]
 	
 	switch (_grid[# 1, _selected]) {
@@ -108,4 +118,6 @@ if (input_enter_p) {
 	
 	// TODO: Add audio sound when make selection
 	audio_play_sound(sSelection, 1, false);
+	
+	#endregion
 }

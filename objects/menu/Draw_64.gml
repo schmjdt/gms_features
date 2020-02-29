@@ -2,7 +2,8 @@
 
 if (!global.pause) exit;
 
-var _c;
+#region Setup Vars
+
 var _vw = global.view_width;
 var _vh = global.view_height;
 
@@ -15,7 +16,9 @@ var _xb = 16;
 var _ys = (_vh / 2) - ((((_gh - 1) / 2) * _yb));
 var _xs = (_vw / 2);
 
-var _yy, _ltx, _lty, _xo, _rtx, _rty;
+var _yy, _ltx, _lty, _xo, _rtx, _rty, _c;
+
+#endregion
 
 #region Draw Pause Menu "Back"
 
