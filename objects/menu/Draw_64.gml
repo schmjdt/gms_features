@@ -91,6 +91,23 @@ repeat (_gh) {
 			draw_text_color(_rtx + (_len * 1.2), _rty, string(floor(_cp * 100)) + "%", _c, _c, _c, _c, 1);
 			
 			break;
+		case menu_element_type.toggle:
+			var _cv = _grid[# 3, _yy];
+			var _ca = _grid[# 4, _yy];
+			var _c1, _c2;
+			
+			if (_cv == 0) {
+				_c1 = _c;
+				_c2 = c_dkgray;
+			} else {
+				_c1 = c_dkgray;
+				_c2 = _c;
+			}
+			
+			draw_text_color(_rtx,      _rty, "ON",  _c1, _c1, _c1, _c1, 1);
+			draw_text_color(_rtx + 32, _rty, "OFF", _c2, _c2, _c2, _c2, 1);
+			
+			break;
 	}
 	
 	_yy += 1;
