@@ -89,12 +89,13 @@ ds_menu_controls = create_menu_page(
 
 page = 0;
 
+// NOTE: Must be the same order as the enum menu_page
 menu_pages = [
 	ds_menu_main, 
 	ds_menu_settings, 
 	ds_menu_audio, 
-	ds_menu_graphics, 
 	ds_menu_difficulty, 
+	ds_menu_graphics, 
 	ds_menu_controls
 ];
 
