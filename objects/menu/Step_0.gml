@@ -29,6 +29,7 @@ if (inputting) {
 				_grid[# 3, _selected] = clamp(_grid[# 3, _selected], 0, array_length_1d(_range) - 1);
 				
 				// TODO: Add audio sound when changing options
+				audio_play_sound(sChanging, 1, false);
 			}
 			
 			break;	
@@ -40,7 +41,10 @@ if (inputting) {
 				_grid[# 3, _selected] += _input_h * 0.01;
 				_grid[# 3, _selected] = clamp(_grid[# 3, _selected], _range[0], _range[1]);
 				
+				script_execute(_grid[# 2, _selected], _grid[# 0, _selected], _grid[# 3, _selected]);
+				
 				// TODO: Add /intermittent/ audio sound when changing options
+				if (!audio_is_playing(sChanging)) audio_play_sound(sChanging, 1, false);
 			}
 			
 			break;	
@@ -50,9 +54,11 @@ if (inputting) {
 			// TODO: Can add other invalid keys
 			if (_lk != vk_enter) {
 				if (_lk != _grid[# 3, _selected]) {
-					// TODO: Add audio sound when picked new key
 					_grid[# 3, _selected] = _lk;
 					variable_global_set(_grid[# 2, _selected], _lk);
+					
+					// TODO: Add audio sound when picked new key
+					audio_play_sound(sChanging, 1, false);
 				}
 			} else {
 				// TODO: Add audio sound when picked invalid key
@@ -73,6 +79,7 @@ if (inputting) {
 		if (menu_option[page] < 0)		 menu_option[page] = _gh - 1;
 	
 		// TODO: Add audio sound when changing options
+		audio_play_sound(sNavigation, 1, false);
 	}
 	
 	#endregion
@@ -100,4 +107,5 @@ if (input_enter_p) {
 	}
 	
 	// TODO: Add audio sound when make selection
+	audio_play_sound(sSelection, 1, false);
 }
