@@ -67,6 +67,20 @@ repeat (_gh) {
 	_rty = _ys + (_yy * _yb);
 	_c = c_white;
 		
+	switch (_grid[# 1, _yy]) {
+		case menu_element_type.shift:
+			var _cv = _grid[# 3, _yy];
+			var _ca = _grid[# 4, _yy];
+			var _ls = "<< ";
+			var _rs = " >>";
+			
+			if (_cv == 0) _ls = "";
+			if (_cv == array_length_1d(_ca) - 1) _rs = "";
+			
+			draw_text_color(_rtx, _rty, _ls + _ca[_cv] + _rs, _c, _c, _c, _c, 1);
+				
+			break;
+	}
 	
 	_yy += 1;
 }
