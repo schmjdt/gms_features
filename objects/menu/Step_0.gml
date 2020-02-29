@@ -14,6 +14,8 @@ var _grid = menu_pages[page];
 var _gh = ds_grid_height(_grid);
 
 if (inputting) {
+	#region updating selected option
+	
 	var _selected = menu_option[page]
 	
 	switch (_grid[# 1, _selected]) {
@@ -58,7 +60,11 @@ if (inputting) {
 		
 			break;	
 	}
+	
+	#endregion
 } else {
+	#region changing which option
+	
 	var _oc = input_down_p - input_up_p;
 	if (_oc != 0) {
 		menu_option[page] += _oc;	
@@ -68,18 +74,26 @@ if (inputting) {
 	
 		// TODO: Add audio sound when changing options
 	}
+	
+	#endregion
 }
 
 if (input_enter_p) {
-	switch (_grid[# 1, menu_option[page]]) {
+	var _selected = menu_option[page]
+	
+	switch (_grid[# 1, _selected]) {
 		case menu_element_type.script_runner:
+			script_execute(_grid[# 2, _selected]);
 			break;
 		case menu_element_type.page_transfer:
-			page = _grid[# 2, menu_option[page]];
+			page = _grid[# 2, _selected];
 			break;
 		case menu_element_type.slider:
 		case menu_element_type.shift:
 		case menu_element_type.toggle:
+			if (inputting) {
+				script_execute(_grid[# 2, _selected], _grid[# 0, _selected], _grid[# 3, _selected]);
+			}
 		case menu_element_type.input:
 			inputting = !inputting;
 			break;	
