@@ -80,6 +80,17 @@ repeat (_gh) {
 			draw_text_color(_rtx, _rty, _ls + _ca[_cv] + _rs, _c, _c, _c, _c, 1);
 				
 			break;
+		case menu_element_type.slider:
+			var _len = 64;
+			var _cv = _grid[# 3, _yy];
+			var _ca = _grid[# 4, _yy];
+			var _cp = ((_cv - _ca[0]) / (_ca[1] - _ca[0]));
+			
+			draw_line_width(_rtx, _rty, _rtx + _len, _rty, 2);
+			draw_circle_color(_rtx + (_cp * _len), _rty, 4, _c, _c, false);
+			draw_text_color(_rtx + (_len * 1.2), _rty, string(floor(_cp * 100)) + "%", _c, _c, _c, _c, 1);
+			
+			break;
 	}
 	
 	_yy += 1;
