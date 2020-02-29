@@ -15,7 +15,7 @@ var _xb = 16;
 var _ys = (_vh / 2) - ((((_gh - 1) / 2) * _yb));
 var _xs = (_vw / 2);
 
-var _yy, _ltx, _lty, _xo;
+var _yy, _ltx, _lty, _xo, _rtx, _rty;
 
 #region Draw Pause Menu "Back"
 
@@ -57,5 +57,20 @@ draw_line(_xs, _ys - _yb, _xs, _lty + _yb);
 #endregion
 
 #region Draw Elements on Right Side
+
+draw_set_halign(fa_left);
+
+_rtx = _xs + _xb;
+_yy = 0;
+
+repeat (_gh) {
+	_rty = _ys + (_yy * _yb);
+	_c = c_white;
+		
+	
+	_yy += 1;
+}
+
+draw_set_valign(fa_top);
 
 #endregion
