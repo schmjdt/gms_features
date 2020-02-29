@@ -17,6 +17,7 @@ if (inputting) {
 	var _selected = menu_option[page]
 	
 	switch (_grid[# 1, _selected]) {
+		case menu_element_type.toggle:	
 		case menu_element_type.shift:
 			var _input_h = input_right_p - input_left_p;
 			var _range = _grid[# 4, _selected]
@@ -40,8 +41,6 @@ if (inputting) {
 				// TODO: Add /intermittent/ audio sound when changing options
 			}
 			
-			break;	
-		case menu_element_type.toggle:
 			break;	
 		case menu_element_type.input:
 			break;	
