@@ -39,6 +39,14 @@
             }
         },
         {
+            "Key": "093290d8-cf9a-416b-8424-4fc723ef6383",
+            "Value": {
+                "id": "d53ac761-70e4-40f6-8317-253508ae96e2",
+                "resourcePath": "objects\\event_manager\\event_manager.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "0fb0e2f7-7366-4ea0-870f-3badbddc7927",
             "Value": {
                 "id": "75a4eeaa-1f8f-4a38-97b9-ddaa5f0fee85",
