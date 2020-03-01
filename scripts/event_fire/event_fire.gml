@@ -21,17 +21,24 @@ with (event_manager) {
 			_script = _info[1];
 			
 			var _len_args = array_length_1d(_info) - 2;
+			var unregister = false;
 			
 			if (_len_args <= 0) {
 				with (_listener) {
-					script_execute(_script);
+					unregister = script_execute(_script);
 				}
 			} else {
 				_args = array_create(_len_args, 0);	
 				array_copy(_args, 0, _info, 2, _len_args);
 				with (_listener) {
-					script_execute_alt(_script, _args);
+					unregister = script_execute_alt(_script, _args);
 				}
+			}
+			
+			if (unregister) {
+				event_unregister(_ev, _listener);
+				
+				_i -= 1;
 			}
 			
 			_i += 1;
