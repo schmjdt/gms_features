@@ -183,6 +183,14 @@
             }
         },
         {
+            "Key": "e1e356a3-0627-4eaa-bb0c-3995462687a8",
+            "Value": {
+                "id": "27bf9acf-bd32-40bc-9491-4f6e3d7f3359",
+                "resourcePath": "scripts\\script_execute_alt\\script_execute_alt.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "e3d8cda2-7ea5-48cc-b9ae-374db26253cd",
             "Value": {
                 "id": "031c3f3a-d2b8-4c3c-89ba-474cba3dc688",
